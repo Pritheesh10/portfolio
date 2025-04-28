@@ -1,0 +1,135 @@
+:root {
+    --primary-color: #00ffaa;
+    --bg-color: #111;
+    --text-color: #eee;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'JetBrains Mono','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serifs;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  body.light-theme {
+    --bg-color: #fff;
+    --text-color: #111;
+    --primary-color: #007bff;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    background: var(--bg-color);
+    z-index: 10;
+  }
+  
+  .navbar a {
+    margin: 0 1rem;
+    color: var(--text-color);
+    text-decoration: none;
+  }
+  
+  #theme-toggle {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--primary-color);
+  }
+  
+  .home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 8rem;
+    text-align: center;
+  }
+  
+  .profile-pic {
+    width: 180px;
+    border-radius: 50%;
+    user-select: none;
+    pointer-events: none;
+  }
+  
+  .animated-name {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 1rem 0;
+  }
+  
+  .animated-name span {
+    opacity: 0;
+    animation: fadeInUp 0.5s ease forwards;
+    display: inline-block;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .about, .projects, .interests, .contact {
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  
+  .heading span {
+    color: var(--primary-color);
+  }
+  
+  .project-desc {
+    margin-top: 1rem;
+  }
+  
+  .interest-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  
+  .interest-icons div {
+    font-size: 1.5rem;
+  }
+  
+  .contact-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 2rem;
+    margin-top: 1rem;
+  }
+  
+  .contact-icons a {
+    color: var(--primary-color);
+    transition: transform 0.3s, color 0.3s;
+  }
+  
+  .contact-icons a:hover {
+    transform: scale(1.2);
+    color: var(--text-color);
+  }
+  
+  .footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+  
