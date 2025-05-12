@@ -10,6 +10,7 @@ toggleBtn.addEventListener('click', () => {
 const nameContainer = document.getElementById('Pritheesh-name');
 const nameText = "Pritheesh";
 const middle = Math.floor(nameText.length / 2);
+
 [...nameText].forEach((letter, i) => {
   const span = document.createElement('span');
   span.textContent = letter;
