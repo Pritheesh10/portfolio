@@ -1,135 +1,210 @@
 :root {
-    --primary-color: #00ffaa;
-    --bg-color: #111;
-    --text-color: #eee;
-  }
-  
-  body {
-    margin: 0;
-    font-family: 'JetBrains Mono','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serifs;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    transition: background 0.3s, color 0.3s;
-  }
-  
-  body.light-theme {
-    --bg-color: #fff;
-    --text-color: #111;
-    --primary-color: #007bff;
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    position: fixed;
-    width: 100%;
-    background: var(--bg-color);
-    z-index: 10;
-  }
-  
-  .navbar a {
-    margin: 0 1rem;
-    color: var(--text-color);
-    text-decoration: none;
-  }
-  
-  #theme-toggle {
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--primary-color);
-  }
-  
-  .home {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 8rem;
-    text-align: center;
-  }
-  
-  .profile-pic {
-    width: 180px;
-    border-radius: 50%;
-    user-select: none;
-    pointer-events: none;
-  }
-  
-  .animated-name {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: var(--primary-color);
-    margin: 1rem 0;
-  }
-  
-  .animated-name span {
+  --primary-color: #00ffaa;
+  --bg-color: #111;
+  --text-color: #eee;
+}
+
+body {
+  margin: 0;
+  font-family: 'JetBrains Mono', 'Lucida Sans', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
+  scroll-behavior: smooth;
+}
+
+body.light-theme {
+  --bg-color: #fff;
+  --text-color: #111;
+  --primary-color: #007bff;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 2rem;
+  position: fixed;
+  width: 100%;
+  background: var(--bg-color);
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.navbar {
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  color: var(--primary-color);
+}
+
+#theme-toggle {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--primary-color);
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 8rem;
+  text-align: center;
+}
+
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--primary-color);
+  box-shadow: 0 0 20px rgba(0, 255, 170, 0.4);
+  user-select: none;
+  pointer-events: none;
+  transition: transform 0.3s;
+}
+
+.profile-pic:hover {
+  transform: scale(1.05);
+}
+
+.animated-name {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin: 1rem 0;
+}
+
+.animated-name span {
+  opacity: 0;
+  animation: fadeInUp 0.5s ease forwards;
+  display: inline-block;
+}
+
+@keyframes fadeInUp {
+  from {
     opacity: 0;
-    animation: fadeInUp 0.5s ease forwards;
-    display: inline-block;
+    transform: translateY(10px);
   }
-  
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .about, .projects, .interests, .contact {
-    padding: 4rem 2rem;
-    text-align: center;
+}
+
+section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.heading {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.heading span {
+  color: var(--primary-color);
+}
+
+.about p,
+.projects p,
+.interests p {
+  max-width: 700px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+.project-desc {
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.interest-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.interest-icons div {
+  font-size: 2rem;
+  color: var(--primary-color);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.interest-icons div:hover {
+  transform: translateY(-5px);
+  color: var(--text-color);
+}
+
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+
+.contact-icons a {
+  color: var(--primary-color);
+  transition: transform 0.3s, color 0.3s;
+}
+
+.contact-icons a:hover {
+  transform: scale(1.2);
+  color: var(--text-color);
+}
+
+.contact-icons a[href*="youtube"] i {
+  color: var(--youtube-color);
+}
+
+.contact-icons a[href*="youtube"]:hover i {
+  color: #fff;
+  background-color: var(--youtube-color);
+  border-radius: 50%;
+  padding: 4px;
+}
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border-top: 1px solid #444;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 0.5rem;
   }
-  
-  .heading span {
-    color: var(--primary-color);
-  }
-  
-  .project-desc {
-    margin-top: 1rem;
-  }
-  
+
   .interest-icons {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    margin-top: 2rem;
+    flex-direction: column;
+    gap: 1rem;
   }
-  
-  .interest-icons div {
-    font-size: 1.5rem;
+
+  .profile-pic {
+    width: 140px;
+    height: 140px;
   }
-  
-  .contact-icons {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
+
+  .animated-name {
     font-size: 2rem;
-    margin-top: 1rem;
   }
-  
-  .contact-icons a {
-    color: var(--primary-color);
-    transition: transform 0.3s, color 0.3s;
-  }
-  
-  .contact-icons a:hover {
-    transform: scale(1.2);
-    color: var(--text-color);
-  }
-  
-  .footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-  }
-  
+}
